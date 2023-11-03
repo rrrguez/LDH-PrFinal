@@ -1,6 +1,12 @@
 # Text Editor Application with Markov, Flesch Index and Distance Calculation
 _this was the final homework for UCSD's Data Structures and Performance._
 
+Team members:
+- [Ramiro Difonti Domé](mailto:alu0101425030@ull.edu.es)
+- [Adnan Hawari Capa](mailto:alu0100417012@ull.edu.es)
+- [Rebeca Rotriguez Rodriguez](mailto:alu0101394763@ull.edu.es)
+- [Sergio Mora González](mailto:alu0100918205@ull.edu.es)
+
 A smart text editor/processor that incorporates “intelligent” behaviors of modern-day text interfaces including autocomplete, flagging misspelled words and spelling auto-correct.
 
 Preferred

@@ -1,5 +1,5 @@
 # Text Editor Application with Markov, Flesch Index and Distance Calculation
-*This project is an expansion of the project allocated in the [repository](https://github.com/salimt/Text-Editor-App).*
+*This project is an expansion of the project allocated in the next [repository](https://github.com/salimt/Text-Editor-App).*
 
 Team members:
 - [Ramiro Difonti Domé](mailto:alu0101425030@ull.edu.es)
@@ -7,7 +7,7 @@ Team members:
 - [Rebeca Rotriguez Rodriguez](mailto:alu0101394763@ull.edu.es)
 - [Sergio Mora González](mailto:alu0100918205@ull.edu.es)
 
-A smart text editor/processor that incorporates “intelligent” behaviors of modern-day text interfaces including autocomplete, flagging misspelled words and spelling auto-correct.
+The aplication is a smart text editor/processor that incorporates “intelligent” behaviors of modern-day text interfaces including autocomplete, flagging misspelled words and spelling auto-correct.
 
 Preferred
 7+ Language Level

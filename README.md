@@ -1,5 +1,5 @@
 # Text Editor Application with Markov, Flesch Index and Distance Calculation
-_this was the final homework for UCSD's Data Structures and Performance._
+*This project is an expansion of the project allocated in the [repository](https://github.com/salimt/Text-Editor-App).*
 
 Team members:
 - [Ramiro Difonti Domé](mailto:alu0101425030@ull.edu.es)

@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['set_0',['set',['../classtextgen_1_1_my_linked_list.html#a45d5fcefc5e67d6434299a531ae06e40',1,'textgen::MyLinkedList']]],
+  ['setautocomplete_1',['setAutoComplete',['../classapplication_1_1_auto_spelling_text_area.html#a3d3fb3aececba5477e8b0a94b3e68dd4',1,'application::AutoSpellingTextArea']]],
+  ['setdialogstage_2',['setdialogstage',['../classapplication_1_1_edit_distance_dialog_controller.html#a8bb6bc9b9d9e063552e629a53ed6cc62',1,'application.EditDistanceDialogController.setDialogStage()'],['../classapplication_1_1_load_file_dialog_controller.html#ac63c3cb1dbf0dd23f3cbfbd804e53007',1,'application.LoadFileDialogController.setDialogStage()'],['../classapplication_1_1_markov_controller.html#a4aaee663ca4ad986c674363b9345e8f0',1,'application.MarkovController.setDialogStage()']]],
+  ['setfield_3',['setField',['../classapplication_1_1_edit_distance_dialog_controller.html#a096353304d5155ae5131c019f7288ff6',1,'application::EditDistanceDialogController']]],
+  ['setmainapp_4',['setmainapp',['../classapplication_1_1_edit_distance_dialog_controller.html#aed08786d55a2a7fc29727f4f2be178b1',1,'application.EditDistanceDialogController.setMainApp()'],['../classapplication_1_1_markov_controller.html#ac2c2ee0e3e157abff1738326594ad73a',1,'application.MarkovController.setMainApp()'],['../classapplication_1_1_text_pro_controller.html#a4d1016af84e98631b25a4433564d902d',1,'application.TextProController.setMainApp()']]],
+  ['setmtg_5',['setMTG',['../classapplication_1_1_markov_controller.html#a4fc3d693e56d43515f3b6d1682613aeb',1,'application::MarkovController']]],
+  ['setresult_6',['setResult',['../classapplication_1_1_markov_controller.html#a44837a74ccb52806423f9758831364bf',1,'application::MarkovController']]],
+  ['setspelling_7',['setSpelling',['../classapplication_1_1_auto_spelling_text_area.html#acd20a9307e7e47fcb52ebce437ef367b',1,'application::AutoSpellingTextArea']]],
+  ['settextarea_8',['setTextArea',['../classapplication_1_1_load_file_dialog_controller.html#ae9cfe920f53f537d9b2b473687bb04ae',1,'application::LoadFileDialogController']]],
+  ['setup_9',['setup',['../classspelling_1_1_dictionary_l_l_tester.html#a61260bad47504818d8bbbe34dc798497',1,'spelling.DictionaryLLTester.setUp()'],['../classtextgen_1_1_my_linked_list_tester.html#a54530f7591dd7277966eb992d283c4de',1,'textgen.MyLinkedListTester.setUp()'],['../classspelling_1_1_auto_complete_dictionary_trie_tester.html#ad4c0c26786573092fe8685b06ab01eb8',1,'spelling.AutoCompleteDictionaryTrieTester.setUp()'],['../classspelling_1_1_dictionary_b_s_t_tester.html#a418d340cd0988b3f1d38c33261c3c865',1,'spelling.DictionaryBSTTester.setUp()']]],
+  ['showeditdistancedialog_10',['showEditDistanceDialog',['../classapplication_1_1_main_app.html#ae4ad63b92c551f677c9fd0abc27f2635',1,'application::MainApp']]],
+  ['showedresult_11',['showEDResult',['../classapplication_1_1_main_app.html#a733ee22e23e469ec0e6c715ff403fb0b',1,'application::MainApp']]],
+  ['showinputerrordialog_12',['showInputErrorDialog',['../classapplication_1_1_main_app.html#a2147384698926dad6b7512b351b5c245',1,'application::MainApp']]],
+  ['showloadfiledialog_13',['showLoadFileDialog',['../classapplication_1_1_main_app.html#ab13d1e6a54a67988cb2195bb2ea05edf',1,'application::MainApp']]],
+  ['showloadstage_14',['showLoadStage',['../classapplication_1_1_main_app.html#a9c41d86dc1e5c49b8db712e0ea46f0ca',1,'application::MainApp']]],
+  ['showmarkovdialog_15',['showMarkovDialog',['../classapplication_1_1_main_app.html#a9c1076a84daae8dc2619608dca265d9b',1,'application::MainApp']]],
+  ['showtextproapp_16',['showTextProApp',['../classapplication_1_1_main_app.html#a974d50f7c3d47511bea2ca1c4baa8d93',1,'application::MainApp']]],
+  ['size_17',['size',['../classspelling_1_1_auto_complete_dictionary_trie.html#a9c32f9244ef558730f4e89d3b8707191',1,'spelling.AutoCompleteDictionaryTrie.size()'],['../interfacespelling_1_1_dictionary.html#a1fb58cbcdecc8f8abefa6ab0e0e509ce',1,'spelling.Dictionary.size()'],['../classspelling_1_1_dictionary_b_s_t.html#a18b710e0ee4df575bfeadf3b85b599ba',1,'spelling.DictionaryBST.size()'],['../classspelling_1_1_dictionary_hash_set.html#a433dca4da83880d7dea715515276127a',1,'spelling.DictionaryHashSet.size()'],['../classspelling_1_1_dictionary_l_l.html#aa22d8ea9eec92d063ae88fc621afdb03',1,'spelling.DictionaryLL.size()'],['../classtextgen_1_1_my_linked_list.html#a782512b6de23dd48375717bbe9195259',1,'textgen.MyLinkedList.size()']]],
+  ['spelling_18',['spelling',['../namespacespelling.html',1,'']]],
+  ['spellingsuggest_19',['SpellingSuggest',['../interfacespelling_1_1_spelling_suggest.html',1,'spelling']]],
+  ['spellingsuggest_2ejava_20',['SpellingSuggest.java',['../_spelling_suggest_8java.html',1,'']]],
+  ['start_21',['start',['../classapplication_1_1_main_app.html#aaff293ddd59cb097f2fb68e532a671bd',1,'application::MainApp']]],
+  ['substitution_22',['substitution',['../classspelling_1_1_nearby_words.html#adbbb8ab5b202e40289f4f8724990b35a',1,'spelling::NearbyWords']]],
+  ['suggestions_23',['suggestions',['../classspelling_1_1_nearby_words.html#a7c9696e193ee6b2949ad012152af6d64',1,'spelling.NearbyWords.suggestions()'],['../interfacespelling_1_1_spelling_suggest.html#a4bd14edcd9adf1c0776364b6106af4c7',1,'spelling.SpellingSuggest.suggestions()']]]
+];

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.55.0" timestamp="2023-11-07T20:49:10.844">
+<file name="C:\Users\Adn\Desktop\APAtrabalhofinal--master\src\main\java\Grafo.java">
+<violation beginline="94" endline="94" begincolumn="18" endcolumn="67" rule="UselessParentheses" ruleset="Code Style" package="main.java" class="Grafo" method="getAresta" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="95" endline="95" begincolumn="25" endcolumn="74" rule="UselessParentheses" ruleset="Code Style" package="main.java" class="Grafo" method="getAresta" externalInfoUrl="https://pmd.github.io/pmd-6.55.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+</pmd>

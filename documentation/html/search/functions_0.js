@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['add_0',['add',['../classtextgen_1_1_my_linked_list.html#ad8f4a6208a945275eae5a0ba935315aa',1,'textgen.MyLinkedList.add(E element)'],['../classtextgen_1_1_my_linked_list.html#ad6d573423ccd276152cf94462ec1a52b',1,'textgen.MyLinkedList.add(int index, E element)']]],
-  ['addword_1',['addword',['../classspelling_1_1_auto_complete_dictionary_trie.html#a7ddcd6c02e448eb15b25bd501bfd9bee',1,'spelling.AutoCompleteDictionaryTrie.addWord()'],['../interfacespelling_1_1_dictionary.html#a01fab1ed24e1b7278c8f331a9b898b06',1,'spelling.Dictionary.addWord()'],['../classspelling_1_1_dictionary_b_s_t.html#a84e279a961c1d2fdc3d560127cae3a3e',1,'spelling.DictionaryBST.addWord()'],['../classspelling_1_1_dictionary_b_s_t_tester.html#acc02253dd45b0da11aa09282c2b50a29',1,'spelling.DictionaryBSTTester.addWord()'],['../classspelling_1_1_dictionary_hash_set.html#abb3405406455a17a385f19f7d9fa1561',1,'spelling.DictionaryHashSet.addWord()'],['../classspelling_1_1_dictionary_l_l.html#a06addbaf9587c3e71222f39db0770e3b',1,'spelling.DictionaryLL.addWord()'],['../classspelling_1_1_dictionary_l_l_tester.html#a8a8f5e864cafb0349ccb07403d5b7916',1,'spelling.DictionaryLLTester.addWord()']]],
-  ['autocompletedictionarytrie_2',['AutoCompleteDictionaryTrie',['../classspelling_1_1_auto_complete_dictionary_trie.html#ac82108d48497296806bb70d333c5e841',1,'spelling::AutoCompleteDictionaryTrie']]],
-  ['autospellingtextarea_3',['AutoSpellingTextArea',['../classapplication_1_1_auto_spelling_text_area.html#af0bfd6c9e9b281c8df7d42f7d45aaf7d',1,'application::AutoSpellingTextArea']]]
-];

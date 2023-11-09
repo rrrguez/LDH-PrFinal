@@ -74,6 +74,6 @@ public class Aresta {
      * @return El peso de la arista.
      */
     public float getPeso() {
-        return peso
+        return peso;
     }
 }

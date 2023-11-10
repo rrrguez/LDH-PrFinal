@@ -9,5 +9,5 @@ Team members:
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=bugs)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal) 
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal)(https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal) 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=coverage)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal)

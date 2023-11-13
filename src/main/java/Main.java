@@ -1,17 +1,19 @@
 package main.java;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Main {
-
     public static void main(String[] args) {
+        // Logger para mostrar por pantalla mensajes
+        Logger logger = Logger.getLogger("Logs");
         String filename;
 
         if (args.length > 0) {
             filename = args[0];
         } else {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Caipirinha gaucho, ingreissse el nombre do archivinho: ");
+            logger.info("Caipirinha gaucho, ingreissse el nombre do archivinho: ");
             filename = scanner.nextLine();
             scanner.close();
         }

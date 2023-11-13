@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.Duration;
 import java.time.Instant;
-
+import java.util.logging.Logger;
 
 
 public class MetGrasp {
@@ -12,7 +12,8 @@ public class MetGrasp {
     private int graspMax;
     private Grafo G;
     private double alfa;
-
+    // Logger para mostrar por pantalla mensajes
+    Logger logger = Logger.getLogger(getClass().getName());
     /**
      * Constructor para inicializar el algoritmo GRASP con un grafo, un número máximo de iteraciones y un factor alfa.
      *
@@ -51,8 +52,9 @@ public class MetGrasp {
             solAux = new MetVND(G, solconstruida).run();
 
             // Imprimir el valor de la solución construida.
-            System.out.print(" Valor da solucao construtiva=> ");
-            System.out.println(valorSolucao(solconstruida));
+            logger.info(" Valor da solucao construtiva=> ");
+            String solucion_construida = String.valueOf(valorSolucao(solconstruida));
+            logger.info(solucion_construida);
 
             // Si la solución es mejor que la mejor actual, actualizar la mejor solución.
             if (valorSolucao(solAux) < bestVal) {
@@ -65,12 +67,14 @@ public class MetGrasp {
         timeElapsed = Duration.between(start, finish).toMillis();
 
         // Imprimir el tiempo de ejecución y el valor de la mejor solución encontrada.
-        System.out.print(" Tempo da solucao meta heuristica=> ");
-        System.out.println(timeElapsed);
-        System.out.print("Rota encontrada => ");
+        logger.info(" Tempo da solucao meta heuristica=> ");
+        String tiempo = String.valueOf(timeElapsed);
+        logger.info(tiempo);
+        logger.info("Rota encontrada => ");
         escreverArray(solucao);
-        System.out.print(" Valor da solucao => ");
-        System.out.println(valorSolucao(solucao));
+        logger.info(" Valor da solucao => ");
+        String solucion = String.valueOf(valorSolucao(solucao));
+        logger.info(solucion);
     }
 
     /**
@@ -108,8 +112,9 @@ public class MetGrasp {
         long timeElapsed = Duration.between(start, finish).toNanos();
 
         // Imprimir el tiempo que tomó construir la solución aleatoria.
-        System.out.print(" Tempo da solucao construtiva (nanos)=> ");
-        System.out.println(timeElapsed);
+        logger.info(" Tempo da solucao construtiva (nanos)=> ");
+        String tiempo = String.valueOf(timeElapsed);
+        logger.info(tiempo);
         return solucao;
     }
 
@@ -177,9 +182,9 @@ public class MetGrasp {
      */
     private void escreverArray(int[] a) {
         for (int i = 0; i < a.length; ++i) {
-            System.out.print(a[i] + " ");
+            logger.info(a[i] + " ");
         }
-        System.out.println(); // Añadir un salto de línea al final para separar la salida de otras impresiones.
+        logger.info(""); // Añadir un salto de línea al final para separar la salida de otras impresiones.
     }
 }
 

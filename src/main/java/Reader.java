@@ -7,6 +7,9 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// Logger para gestionar las excepciones y level para gestionar su nivel
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 /**
  * @class Reader
@@ -62,28 +65,34 @@ public class Reader {
 
         try {
             FileReader r = new FileReader(nomeArquivo);
+            scanner = null;
+            try {
+                scanner = new Scanner(r);
 
-            scanner = new Scanner(r);
+                nVertices = Integer.valueOf(scanner.next());
 
-            nVertices = Integer.valueOf(scanner.next());
-
-            for (int c = 0; c < nVertices; ++c){
-                vertices.add(new Vertice(c+1));
-            }
-
-            for (int c = 0; c < nVertices; ++c){
-                arestas.add(new Aresta(vertices.get(c),vertices.get(c), 0));
-            }
-
-            while (scanner.hasNext()) {
-                temp = scanner.next();
-                if (temp.equalsIgnoreCase("0")) {
-                    ++i;
-                    j = i + 1;
-                } else {
-                    arestas.add(new Aresta(vertices.get(i-1), vertices.get(j-1), Float.valueOf(temp)));
-                    ++j;
+                for (int c = 0; c < nVertices; ++c){
+                    vertices.add(new Vertice(c+1));
                 }
+
+                for (int c = 0; c < nVertices; ++c){
+                    arestas.add(new Aresta(vertices.get(c),vertices.get(c), 0));
+                }
+
+                while (scanner.hasNext()) {
+                    temp = scanner.next();
+                    if (temp.equalsIgnoreCase("0")) {
+                        ++i;
+                        j = i + 1;
+                    } else {
+                        arestas.add(new Aresta(vertices.get(i-1), vertices.get(j-1), Float.valueOf(temp)));
+                        ++j;
+                    }
+                }
+            } catch (Exception e) {
+                Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, e);
+            } finally {
+                scanner.close();
             }
         } catch (FileNotFoundException ex) {
             System.err.println("Erro na leitura do archivo.");

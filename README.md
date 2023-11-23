@@ -2,7 +2,7 @@
 
 
 Team members:
-- [Ramiro Difonti Domé][<img src="https://static.vecteezy.com/system/resources/previews/015/117/357/non_2x/envelope-icon-in-white-colors-mail-signs-illustration-png.png" width="20" height="20">](mailto:alu0101425030@ull.edu.es)
+- [Ramiro Difonti Domé](https://github.com/ramirodifonti)[<img src="https://static.vecteezy.com/system/resources/previews/015/117/357/non_2x/envelope-icon-in-white-colors-mail-signs-illustration-png.png" width="20" height="20">](mailto:alu0101425030@ull.edu.es)
 - [Adnan Hawari Capa](https://github.com/adn086)[<img src="https://static.vecteezy.com/system/resources/previews/015/117/357/non_2x/envelope-icon-in-white-colors-mail-signs-illustration-png.png" width="20" height="20">](mailto:alu0100417012@ull.edu.es)
 - [Rebeca Rotriguez Rodriguez](https://github.com/rrrguez) [<img src="https://static.vecteezy.com/system/resources/previews/015/117/357/non_2x/envelope-icon-in-white-colors-mail-signs-illustration-png.png" width="20" height="20">](mailto:alu0101394763@ull.edu.es)
 - [Sergio Mora González](https://github.com/alu0100918205)[<img src="https://static.vecteezy.com/system/resources/previews/015/117/357/non_2x/envelope-icon-in-white-colors-mail-signs-illustration-png.png" width="20" height="20">](mailto:alu0100918205@ull.edu.es)

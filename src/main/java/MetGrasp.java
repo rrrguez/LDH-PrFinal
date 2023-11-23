@@ -13,6 +13,7 @@ public class MetGrasp {
     private int graspMax;
     private Grafo builtGrafo;
     private double alfa;
+    private Random random = new Random(); 
     // Logger para mostrar por pantalla mensajes
     Logger logger = Logger.getLogger(getClass().getName());
     /**
@@ -97,9 +98,8 @@ public class MetGrasp {
         try {
             // Mientras haya candidatos disponibles, seleccionar uno y construir la solución.
             while (!valSolucoespossiveis.isEmpty()) {
-                Random random = new Random();
                 int sig = (int) valSolucoespossiveis.size() * (int) alfa + 1;
-                int rand = random.nextInt(sig);
+                int rand = this.random.nextInt(sig);
                 double[] aux = valSolucoespossiveis.get(rand);
                 solucao[count] = (int) aux[1];
                 valSolucoespossiveis.remove(aux);

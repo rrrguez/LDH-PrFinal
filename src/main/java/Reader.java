@@ -63,40 +63,39 @@ public class Reader {
         String temp;
         int i = 0;
         int j = i+1;
-
+        FileReader r = null;
         try {
-            FileReader r = new FileReader(nomeArquivo);
-            scanner = null;
-            try {
-                scanner = new Scanner(r);
-
-                nVertices = Integer.valueOf(scanner.next());
-
-                for (int c = 0; c < nVertices; ++c){
-                    vertices.add(new Vertice(c+1));
-                }
-
-                for (int c = 0; c < nVertices; ++c){
-                    arestas.add(new Aresta(vertices.get(c),vertices.get(c), 0));
-                }
-
-                while (scanner.hasNext()) {
-                    temp = scanner.next();
-                    if (temp.equalsIgnoreCase("0")) {
-                        ++i;
-                        j = i + 1;
-                    } else {
-                        arestas.add(new Aresta(vertices.get(i-1), vertices.get(j-1), Float.valueOf(temp)));
-                        ++j;
-                    }
-                }
-            } catch (Exception e) {
-                Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, e);
-            } finally {
-                scanner.close();
-            }
+            r = new FileReader(nomeArquivo);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, "Erro na leitura do archivo.");
+        }
+        scanner = null;
+        try {
+            scanner = new Scanner(r);
+            nVertices = Integer.valueOf(scanner.next());
+
+            for (int c = 0; c < nVertices; ++c){
+                vertices.add(new Vertice(c+1));
+            }
+
+            for (int c = 0; c < nVertices; ++c){
+                arestas.add(new Aresta(vertices.get(c),vertices.get(c), 0));
+            }
+
+            while (scanner.hasNext()) {
+                temp = scanner.next();
+                if (temp.equalsIgnoreCase("0")) {
+                    ++i;
+                    j = i + 1;
+                } else {
+                    arestas.add(new Aresta(vertices.get(i-1), vertices.get(j-1), Float.valueOf(temp)));
+                    ++j;
+                }
+            }
+        } catch (Exception e) {
+            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            scanner.close();
         }
     }
 

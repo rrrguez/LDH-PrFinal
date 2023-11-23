@@ -2,7 +2,7 @@ package main.java;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.security.SecureRandom;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.logging.Logger;
@@ -13,7 +13,7 @@ public class MetGrasp {
     private int graspMax;
     private Grafo builtGrafo;
     private double alfa;
-    private Random random = new Random(); 
+    private SecureRandom random = new SecureRandom();
     // Logger para mostrar por pantalla mensajes
     Logger logger = Logger.getLogger(getClass().getName());
     /**

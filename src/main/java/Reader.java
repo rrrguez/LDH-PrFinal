@@ -49,7 +49,33 @@ public class Reader {
         this.vertices = new ArrayList<>();
         leArquivo();
     }
-
+    private void readDataFromScanner(FileReader r, Scanner scanner) {
+        try {
+            nVertices = Integer.valueOf(scanner.next());
+            for (int c = 0; c < nVertices; ++c) {
+                vertices.add(new Vertice(c + 1));
+            }
+            for (int c = 0; c < nVertices; ++c) {
+                arestas.add(new Aresta(vertices.get(c), vertices.get(c), 0));
+            }
+            int i = 0;
+            int j = i + 1;
+            while (scanner.hasNext()) {
+                String temp = scanner.next();
+                if (temp.equalsIgnoreCase("0")) {
+                    ++i;
+                    j = i + 1;
+                } else {
+                    arestas.add(new Aresta(vertices.get(i - 1), vertices.get(j - 1), Float.valueOf(temp)));
+                    ++j;
+                }
+            }
+        } catch (Exception e) {
+            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            scanner.close();
+        }
+    }
     /**
      * Método privado para leer el archivo y construir las listas de aristas y vértices.
      *
@@ -57,45 +83,21 @@ public class Reader {
      * captura excepciones si el archivo no se encuentra.
      */
     private void leArquivo() {
-
-        Scanner scanner;
-        String temp;
-        int i = 0;
-        int j = i+1;
-
         try {
             FileReader r = new FileReader(nomeArquivo);
-            scanner = null;
+            Scanner scanner = null;
             try {
                 scanner = new Scanner(r);
-
-                nVertices = Integer.valueOf(scanner.next());
-
-                for (int c = 0; c < nVertices; ++c){
-                    vertices.add(new Vertice(c+1));
-                }
-
-                for (int c = 0; c < nVertices; ++c){
-                    arestas.add(new Aresta(vertices.get(c),vertices.get(c), 0));
-                }
-
-                while (scanner.hasNext()) {
-                    temp = scanner.next();
-                    if (temp.equalsIgnoreCase("0")) {
-                        ++i;
-                        j = i + 1;
-                    } else {
-                        arestas.add(new Aresta(vertices.get(i-1), vertices.get(j-1), Float.valueOf(temp)));
-                        ++j;
-                    }
-                }
+                readDataFromScanner(r, scanner);
             } catch (Exception e) {
                 Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, e);
             } finally {
-                scanner.close();
+                if (scanner != null) {
+                    scanner.close();
+                }
             }
         } catch (FileNotFoundException ex) {
-            System.err.println("Erro na leitura do archivo.");
+            System.err.println("Erro na leitura do arquivo.");
         }
     }
 

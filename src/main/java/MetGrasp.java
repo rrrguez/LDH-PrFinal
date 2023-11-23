@@ -182,7 +182,8 @@ public class MetGrasp {
      */
     private void escreverArray(int[] a) {
         for (int i = 0; i < a.length; ++i) {
-            logger.info(a[i] + " ");
+            String sol = String.valueOf(a[i]) + " ";
+            logger.info(sol);
         }
         logger.info(""); // Añadir un salto de línea al final para separar la salida de otras impresiones.
     }

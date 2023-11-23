@@ -1,6 +1,7 @@
 package main.java;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.security.SecureRandom;
 import java.time.Duration;
@@ -98,7 +99,7 @@ public class MetGrasp {
         try {
             // Mientras haya candidatos disponibles, seleccionar uno y construir la solución.
             while (!valSolucoespossiveis.isEmpty()) {
-                int sig = (int) valSolucoespossiveis.size() * (int) alfa + 1;
+                int sig = valSolucoespossiveis.size() * (int) alfa + 1;
                 int rand = this.random.nextInt(sig);
                 double[] aux = valSolucoespossiveis.get(rand);
                 solucao[count] = (int) aux[1];
@@ -154,7 +155,7 @@ public class MetGrasp {
         });
 
         for (double[] d: aux){
-            custosCandidatos.add(d);
+            Collections.addAll(custosCandidatos, d);
         }
 
         return custosCandidatos;

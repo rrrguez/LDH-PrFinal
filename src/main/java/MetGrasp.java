@@ -2,6 +2,7 @@ package main.java;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.logging.Logger;
@@ -96,7 +97,10 @@ public class MetGrasp {
         try {
             // Mientras haya candidatos disponibles, seleccionar uno y construir la solución.
             while (!valSolucoespossiveis.isEmpty()) {
-                double[] aux = valSolucoespossiveis.get((int) (Math.random() * ((int) valSolucoespossiveis.size() * alfa + 1)));
+                Random random = new Random();
+                int sig = (int) valSolucoespossiveis.size() * (int) alfa + 1;
+                int rand = random.nextInt(sig);
+                double[] aux = valSolucoespossiveis.get(rand);
                 solucao[count] = (int) aux[1];
                 valSolucoespossiveis.remove(aux);
                 ++count;

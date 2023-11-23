@@ -19,12 +19,12 @@ public class Main {
         }
 
         Reader leitor = new Reader(filename);
-        Grafo G = new Grafo(leitor.getnVertices(), leitor.getVertices(), leitor.getArestas());
+        Grafo builtSolution = new Grafo(leitor.getnVertices(), leitor.getVertices(), leitor.getArestas());
 
         int iteracoesGrasp = 2;
         double alfa = 0.1;
 
-        MetGrasp grasp = new MetGrasp(G, iteracoesGrasp, alfa);
+        MetGrasp grasp = new MetGrasp(builtSolution, iteracoesGrasp, alfa);
 
         // LACO PARA INICIALIZAR GRASP 10 VEZES COM N(iteracoesGrasp) ITERACOES)
         for (int i = 0; i < 10; ++i) grasp.run();

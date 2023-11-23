@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class MetGrasp {
     // Variables para establecer el número máximo de iteraciones, el grafo sobre el cual operar y el parámetro alfa para la construcción de soluciones aleatorias.
     private int graspMax;
-    private Grafo G;
+    private Grafo builtGrafo;
     private double alfa;
     // Logger para mostrar por pantalla mensajes
     Logger logger = Logger.getLogger(getClass().getName());
@@ -23,7 +23,7 @@ public class MetGrasp {
      */
     public MetGrasp(Grafo g, int graspMax, double alfa) {
         this.graspMax = graspMax;
-        this.G = g;
+        this.builtGrafo = g;
         this.alfa = alfa;
     }
 
@@ -33,7 +33,7 @@ public class MetGrasp {
      */
     public void run() {
         // Inicializar las soluciones y las variables de tiempo
-        int[] solucao = new int[G.getnVertices()];
+        int[] solucao = new int[builtGrafo.getnVertices()];
         int[] solconstruida;
         int[] solAux;
         Instant start;
@@ -49,7 +49,7 @@ public class MetGrasp {
         for (int i = 0; i < graspMax; ++i) {
             // Construir una solución aleatoria y mejorarla con VND.
             solconstruida = construirSolucaoAleatoria(1, alfa);
-            solAux = new MetVND(G, solconstruida).run();
+            solAux = new MetVND(builtGrafo, solconstruida).run();
 
             // Imprimir el valor de la solución construida.
             logger.info(" Valor da solucao construtiva=> ");
@@ -87,7 +87,7 @@ public class MetGrasp {
     public int[] construirSolucaoAleatoria(int id, double alfa) {
         int count = 0;
         Instant start = Instant.now();
-        int[] solucao = new int[G.getnVertices()];
+        int[] solucao = new int[builtGrafo.getnVertices()];
         List<double[]> valSolucoespossiveis;
 
         // Inicializar los candidatos para el punto de partida.
@@ -126,17 +126,17 @@ public class MetGrasp {
      */
     private List<double[]> inicializarCandidatos(int id) {
         List<double[]> custosCandidatos = new ArrayList<>();
-        double[][] aux = new double[G.getnVertices()][2];
+        double[][] aux = new double[builtGrafo.getnVertices()][2];
         int count = 0;
 
         // Llenar la lista auxiliar con los pesos y los identificadores de los vértices.
-        for (Vertice v : G.getVertices()) {
+        for (Vertice v : builtGrafo.getVertices()) {
             if (id == v.getId()) {
                 aux[count][0] = 0;
                 aux[count][1] = v.getId();
                 ++count;
             } else {
-                aux[count][0] = G.getAresta(id, v.getId()).getPeso();
+                aux[count][0] = builtGrafo.getAresta(id, v.getId()).getPeso();
                 aux[count][1] = v.getId();
                 ++count;
             }
@@ -167,10 +167,10 @@ public class MetGrasp {
 
         // Sumar los pesos de las aristas entre vértices consecutivos en la solución.
         for (int c = 1; c < s.length; ++c) {
-            solucao += G.getAresta(s[c - 1], s[c]).getPeso();
+            solucao += builtGrafo.getAresta(s[c - 1], s[c]).getPeso();
         }
         // Añadir el peso de la arista que cierra el ciclo, conectando el último y el primer vértice.
-        solucao += G.getAresta(s[s.length - 1], s[0]).getPeso();
+        solucao += builtGrafo.getAresta(s[s.length - 1], s[0]).getPeso();
 
         return solucao;
     }

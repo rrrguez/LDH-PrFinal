@@ -25,8 +25,8 @@ public class MetVND {
      * @param G El grafo sobre el cual se aplicará VND.
      * @param solucaoConstruida Solución inicial sobre la cual se mejorará.
      */
-    public MetVND(Grafo G, int[] solucaoConstruida) {
-        this.grafo = G;
+    public MetVND(Grafo builtGrafo, int[] solucaoConstruida) {
+        this.grafo = builtGrafo;
         this.solConstruida = solucaoConstruida;
     }
 

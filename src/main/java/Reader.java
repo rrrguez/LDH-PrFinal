@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 // Logger para gestionar las excepciones y level para gestionar su nivel
@@ -95,7 +96,7 @@ public class Reader {
                 scanner.close();
             }
         } catch (FileNotFoundException ex) {
-            System.err.println("Erro na leitura do archivo.");
+            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, "Erro na leitura do archivo.");
         }
     }
 
@@ -111,7 +112,7 @@ public class Reader {
      * Obtiene la lista de aristas del grafo.
      * @return Una ArrayList de Aresta con las aristas del grafo.
      */
-    public ArrayList<Aresta> getArestas() {
+    public List<Aresta> getArestas() {
         return arestas;
     }
 
@@ -119,7 +120,7 @@ public class Reader {
      * Obtiene la lista de vértices del grafo.
      * @return Una ArrayList de Vertice con los vértices del grafo.
      */
-    public ArrayList<Vertice> getVertices(){
+    public List<Vertice> getVertices(){
         return vertices;
     }
 }

@@ -53,8 +53,8 @@ public class MetGrasp {
 
             // Imprimir el valor de la solución construida.
             logger.info(" Valor da solucao construtiva=> ");
-            String solucion_construida = String.valueOf(valorSolucao(solconstruida));
-            logger.info(solucion_construida);
+            String builtSolution = String.valueOf(valorSolucao(solconstruida));
+            logger.info(builtSolution);
 
             // Si la solución es mejor que la mejor actual, actualizar la mejor solución.
             if (valorSolucao(solAux) < bestVal) {

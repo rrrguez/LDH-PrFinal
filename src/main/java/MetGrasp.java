@@ -6,6 +6,7 @@ import java.util.List;
 import java.security.SecureRandom;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
@@ -55,9 +56,7 @@ public class MetGrasp {
             solAux = new MetVND(builtGrafo, solconstruida).run();
 
             // Imprimir el valor de la solución construida.
-            logger.info(" Valor da solucao construtiva=> ");
-            String builtSolution = String.valueOf(valorSolucao(solconstruida));
-            logger.info(builtSolution);
+            logger.info(" Valor da solucao construtiva=> " + String.valueOf(valorSolucao(solconstruida)));
 
             // Si la solución es mejor que la mejor actual, actualizar la mejor solución.
             if (valorSolucao(solAux) < bestVal) {
@@ -70,14 +69,10 @@ public class MetGrasp {
         timeElapsed = Duration.between(start, finish).toMillis();
 
         // Imprimir el tiempo de ejecución y el valor de la mejor solución encontrada.
-        logger.info(" Tempo da solucao meta heuristica=> ");
-        String tiempo = String.valueOf(timeElapsed);
-        logger.info(tiempo);
-        logger.info("Rota encontrada => ");
+        logger.info(" Tempo da solucao meta heuristica=> " + String.valueOf(timeElapsed));
+
         escreverArray(solucao);
-        logger.info(" Valor da solucao => ");
-        String solucion = String.valueOf(valorSolucao(solucao));
-        logger.info(solucion);
+        logger.info(" Valor da solucao => " + String.valueOf(valorSolucao(solucao)));
     }
 
     /**
@@ -117,9 +112,8 @@ public class MetGrasp {
         long timeElapsed = Duration.between(start, finish).toNanos();
 
         // Imprimir el tiempo que tomó construir la solución aleatoria.
-        logger.info(" Tempo da solucao construtiva (nanos)=> ");
         String tiempo = String.valueOf(timeElapsed);
-        logger.info(tiempo);
+        logger.info(" Tempo da solucao construtiva (nanos)=> " + tiempo);
         return solucao;
     }
 
@@ -186,11 +180,12 @@ public class MetGrasp {
      * @param a La solución a imprimir.
      */
     private void escreverArray(int[] a) {
+        String sol = "";
         for (int i = 0; i < a.length; ++i) {
-            String sol = String.valueOf(a[i]) + " ";
-            logger.info(sol);
+            sol += String.valueOf(a[i]) + " ";
         }
-        logger.info(""); // Añadir un salto de línea al final para separar la salida de otras impresiones.
+        logger.info("Rota encontrada => " + sol);
+        logger.log(Level.FINE, "\n"); // Añadir un salto de línea al final para separar la salida de otras impresiones.
     }
 }
 

@@ -71,17 +71,15 @@ public class Reader {
         }
         scanner = null;
         try {
-            r = new FileReader(nomeArquivo);
             scanner = new Scanner(r);
-
             nVertices = Integer.valueOf(scanner.next());
 
-            for (int c = 0; c < nVertices; ++c) {
-                vertices.add(new Vertice(c + 1));
+            for (int c = 0; c < nVertices; ++c){
+                vertices.add(new Vertice(c+1));
             }
 
-            for (int c = 0; c < nVertices; ++c) {
-                arestas.add(new Aresta(vertices.get(c), vertices.get(c), 0));
+            for (int c = 0; c < nVertices; ++c){
+                arestas.add(new Aresta(vertices.get(c),vertices.get(c), 0));
             }
 
             while (scanner.hasNext()) {
@@ -90,21 +88,14 @@ public class Reader {
                     ++i;
                     j = i + 1;
                 } else {
-                    arestas.add(new Aresta(vertices.get(i - 1), vertices.get(j - 1), Float.valueOf(temp)));
+                    arestas.add(new Aresta(vertices.get(i-1), vertices.get(j-1), Float.valueOf(temp)));
                     ++j;
                 }
-
             }
         } catch (Exception e) {
             Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, e);
         } finally {
-            try {
-                if (scanner != null) {
-                    scanner.close();
-                }
-            } catch (Exception e) {
-                Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, e);
-            }
+            scanner.close();
         }
     }
 
@@ -132,4 +123,5 @@ public class Reader {
         return vertices;
     }
 }
+
 

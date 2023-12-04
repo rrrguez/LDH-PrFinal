@@ -56,7 +56,8 @@ public class MetGrasp {
             solAux = new MetVND(builtGrafo, solconstruida).run();
 
             // Imprimir el valor de la solución construida.
-            logger.info(" Valor da solucao construtiva=> " + String.valueOf(valorSolucao(solconstruida)));
+            String solucion = "Valor da solucao construtiva=> " + String.valueOf(valorSolucao(solconstruida));
+            logger.info(solucion);
 
             // Si la solución es mejor que la mejor actual, actualizar la mejor solución.
             if (valorSolucao(solAux) < bestVal) {
@@ -69,10 +70,13 @@ public class MetGrasp {
         timeElapsed = Duration.between(start, finish).toMillis();
 
         // Imprimir el tiempo de ejecución y el valor de la mejor solución encontrada.
-        logger.info(" Tempo da solucao meta heuristica=> " + String.valueOf(timeElapsed));
+        String exeTempo = " Tempo da solucao meta heuristica=> " + String.valueOf(timeElapsed);
+        logger.info(exeTempo);
 
         escreverArray(solucao);
-        logger.info(" Valor da solucao => " + String.valueOf(valorSolucao(solucao)));
+
+        String valorSolucao = " Valor da solucao => " + String.valueOf(valorSolucao(solucao));
+        logger.info(valorSolucao);
     }
 
     /**
@@ -113,7 +117,8 @@ public class MetGrasp {
 
         // Imprimir el tiempo que tomó construir la solución aleatoria.
         String tiempo = String.valueOf(timeElapsed);
-        logger.info(" Tempo da solucao construtiva (nanos)=> " + tiempo);
+        String tempoSolucao = " Tempo da solucao construtiva (nanos)=> " + tiempo;
+        logger.info(tempoSolucao);
         return solucao;
     }
 
@@ -184,7 +189,8 @@ public class MetGrasp {
         for (int i = 0; i < a.length; ++i) {
             sol += String.valueOf(a[i]) + " ";
         }
-        logger.info("Rota encontrada => " + sol);
+        String message = "Rota encontrada => " + sol;
+        logger.info(message);
         logger.log(Level.FINE, "\n"); // Añadir un salto de línea al final para separar la salida de otras impresiones.
     }
 }

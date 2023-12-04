@@ -70,12 +70,12 @@ public class MetGrasp {
         timeElapsed = Duration.between(start, finish).toMillis();
 
         // Imprimir el tiempo de ejecución y el valor de la mejor solución encontrada.
-        String exeTempo = " Tempo da solucao meta heuristica=> " + String.valueOf(timeElapsed);
+        String exeTempo = " Tempo da solucao meta heuristica=> " + timeElapsed;
         logger.info(exeTempo);
 
         escreverArray(solucao);
 
-        String valorSolucao = " Valor da solucao => " + String.valueOf(valorSolucao(solucao));
+        String valorSolucao = " Valor da solucao => " + valorSolucao(solucao);
         logger.info(valorSolucao);
     }
 

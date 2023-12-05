@@ -4,30 +4,41 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class Main {
+    private static final Logger logger = Logger.getLogger("Logs");
+
     public static void main(String[] args) {
-        // Logger para mostrar por pantalla mensajes
-        Logger logger = Logger.getLogger("Logs");
-        String filename;
-
-        if (args.length > 0) {
-            filename = args[0];
-        } else {
-            Scanner scanner = new Scanner(System.in);
-            logger.info("Caipirinha gaucho, ingreissse el nombre do archivinho: ");
-            filename = scanner.nextLine();
-            scanner.close();
-        }
-
+        String filename = obtainFileName(args);
         Reader leitor = new Reader(filename);
-        Grafo builtSolution = new Grafo(leitor.getnVertices(), leitor.getVertices(), leitor.getArestas());
-
-        int iteracoesGrasp = 2;
-        double alfa = 0.1;
-
-        MetGrasp grasp = new MetGrasp(builtSolution, iteracoesGrasp, alfa);
-
-        // LACO PARA INICIALIZAR GRASP 10 VEZES COM N(iteracoesGrasp) ITERACOES)
-        for (int i = 0; i < 10; ++i) grasp.run();
+        Grafo builtSolution = createGrafoFromReader(leitor);
+        MetGrasp grasp = initializeGrasp(builtSolution);
+        executeGrasp(grasp);
     }
 
+    public static String obtainFileName(String[] args) {
+        if (args.length > 0) {
+            return args[0];
+        } else {
+            logger.info("Ingrese el nombre del archivo: ");
+            Scanner scanner = new Scanner(System.in);
+            String filename = scanner.nextLine();
+            scanner.close();
+            return filename;
+        }
+    }
+
+    static Grafo createGrafoFromReader(Reader leitor) {
+        return new Grafo(leitor.getnVertices(), leitor.getVertices(), leitor.getArestas());
+    }
+
+    static MetGrasp initializeGrasp(Grafo builtSolution) {
+        int iteracoesGrasp = 2;
+        double alfa = 0.1;
+        return new MetGrasp(builtSolution, iteracoesGrasp, alfa);
+    }
+
+    static void executeGrasp(MetGrasp grasp) {
+        for (int i = 0; i < 10; ++i) {
+            grasp.run();
+        }
+    }
 }

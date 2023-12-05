@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GrafoTest {
+class GrafoTest {
 
     @Test
-    public void testGetVertice() {
+    void testGetVertice() {
         // Crear un grafo de prueba con algunos vértices
         List<Vertice> vertices = new ArrayList<>();
         vertices.add(new Vertice(1));
@@ -28,7 +28,7 @@ public class GrafoTest {
     }
 
     @Test
-    public void testGetAresta() {
+    void testGetAresta() {
         // Crear un grafo de prueba con algunas aristas
         List<Vertice> vertices = new ArrayList<>();
         vertices.add(new Vertice(1));
@@ -47,6 +47,4 @@ public class GrafoTest {
         assertNotNull(a);
         assertEquals(2.0, a.getPeso());
     }
-
-    // Puedes agregar más pruebas según sea necesario
 }

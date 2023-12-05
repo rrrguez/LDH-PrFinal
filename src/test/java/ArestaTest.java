@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArestaTest {
+class ArestaTest {
 
     @Test
-    public void testSetV1() {
+    void testSetV1() {
         // Arrange
         List<Vertice> vertices = new ArrayList<>();
         vertices.add(new Vertice(1));
@@ -28,7 +28,7 @@ public class ArestaTest {
         assertEquals(vertice, aresta.getV1());
     }
     @Test
-    public void testSetV2() {
+    void testSetV2() {
         // Arrange
         List<Vertice> vertices = new ArrayList<>();
         vertices.add(new Vertice(1));

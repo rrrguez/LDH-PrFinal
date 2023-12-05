@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MetVNDTest {
+class MetVNDTest {
 
     @Test
-    public void testRun() {
+    void testRun() {
         // Crear un grafo de prueba con algunos vértices y aristas
         List<Vertice> vertices = new ArrayList<>();
         List<Aresta> arestas = new ArrayList<>();
@@ -46,6 +46,4 @@ public class MetVNDTest {
         // Puedes agregar afirmaciones según la lógica de tu aplicación
         assertNotNull(mejorSolucion);
     }
-
-    // Puedes agregar más pruebas según sea necesario
 }

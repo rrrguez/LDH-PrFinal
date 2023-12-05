@@ -8,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MetGraspTest {
+class MetGraspTest {
     @Test
-    public void testMetGraspConstructor() {
+    void testMetGraspConstructor() {
         // Crear un grafo de prueba con algunos vértices y aristas
         List<Vertice> vertices = new ArrayList<>();
         List<Aresta> arestas = new ArrayList<>();
@@ -45,7 +45,7 @@ public class MetGraspTest {
         assertEquals(alfa, metGrasp.getAlfa());
     }
     @Test
-    public void testRun() {
+    void testRun() {
         // Crear un grafo de prueba con algunos vértices y aristas
         List<Vertice> vertices = new ArrayList<>();
         List<Aresta> arestas = new ArrayList<>();
@@ -73,9 +73,5 @@ public class MetGraspTest {
 
         // Ejecutar el método run
         metGrasp.run();
-
-        // Puedes agregar afirmaciones según la lógica de tu aplicación
     }
-
-    // Puedes agregar más pruebas según sea necesario
 }

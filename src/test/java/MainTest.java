@@ -13,15 +13,15 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class MainTest {
+class MainTest {
     @Test
-    public void testObtainFileName_args() {
+    void testObtainFileName_args() {
         String[] args = new String[]{"bayg29.txt"};
         String expected = "bayg29.txt";
         assertEquals(expected, Main.obtainFileName(args));
     }
     @Test
-    public void testObtainFileName_no_args() {
+    void testObtainFileName_no_args() {
         String simulatedUserInput = "bayg29.txt";
         ByteArrayInputStream test = new ByteArrayInputStream(simulatedUserInput.getBytes());
         System.setIn(test);
@@ -39,13 +39,13 @@ public class MainTest {
         assertEquals(expectedOutput, actualOutput);
     }
     @Test
-    public void testCreateGrafoFromReader() {
+    void testCreateGrafoFromReader() {
         Reader reader = new Reader("bayg29.txt");
         assertNotNull(Main.createGrafoFromReader(reader));
     }
 
     @Test
-    public void testInitializeGrasp() {
+    void testInitializeGrasp() {
         List<Vertice> vertices = new ArrayList<>();
         vertices.add(new Vertice(1));
         vertices.add(new Vertice(2));
@@ -60,7 +60,7 @@ public class MainTest {
     }
 
     @Test
-    public void testExecuteGrasp() {
+    void testExecuteGrasp() {
         // Crear un grafo de prueba con algunos vértices y aristas
         List<Vertice> vertices = new ArrayList<>();
         List<Aresta> arestas = new ArrayList<>();

@@ -65,7 +65,7 @@ public class MetGrasp {
             solAux = new MetVND(builtGrafo, solconstruida).run();
 
             // Imprimir el valor de la solución construida.
-            String solucion = "Valor da solucao construtiva=> " + String.valueOf(valorSolucao(solconstruida));
+            String solucion = "Valor da solucao construtiva=> " + valorSolucao(solconstruida);
             logger.info(solucion);
 
             // Si la solución es mejor que la mejor actual, actualizar la mejor solución.
@@ -194,10 +194,11 @@ public class MetGrasp {
      * @param a La solución a imprimir.
      */
     private void escreverArray(int[] a) {
-        String sol = "";
-        for (int i = 0; i < a.length; ++i) {
-            sol += String.valueOf(a[i]) + " ";
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < a.length; i++) {
+            builder.append(a[i]).append(" ");
         }
+        String sol = builder.toString();
         String message = "Rota encontrada => " + sol;
         logger.info(message);
         logger.log(Level.FINE, "\n"); // Añadir un salto de línea al final para separar la salida de otras impresiones.

@@ -5,10 +5,11 @@ import main.java.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-public class ReaderTest {
+
+class ReaderTest {
 
     @Test
-    public void testReaderConstructor() {
+    void testReaderConstructor() {
         // Arrange
         String nomeArquivo = "bayg29.txt";
 

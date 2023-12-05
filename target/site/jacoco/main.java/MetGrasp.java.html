@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MetGrasp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">LDH-FINAL</a> &gt; <a href="index.source.html" class="el_package">main.java</a> &gt; <span class="el_source">MetGrasp.java</span></div><h1>MetGrasp.java</h1><pre class="source lang-java linenums">package main.java;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.security.SecureRandom;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
+public class MetGrasp {
+    // Variables para establecer el número máximo de iteraciones, el grafo sobre el cual operar y el parámetro alfa para la construcción de soluciones aleatorias.
+    private int graspMax;
+    private Grafo builtGrafo;
+    private double alfa;
+<span class="fc" id="L18">    private SecureRandom random = new SecureRandom();</span>
+    // Logger para mostrar por pantalla mensajes
+<span class="fc" id="L20">    Logger logger = Logger.getLogger(getClass().getName());</span>
+    /**
+     * Constructor para inicializar el algoritmo GRASP con un grafo, un número máximo de iteraciones y un factor alfa.
+     *
+     * @param g         El grafo sobre el que se aplicará GRASP.
+     * @param graspMax  Número máximo de iteraciones para GRASP.
+     * @param alfa      Parámetro alfa para la construcción de soluciones aleatorias.
+     */
+    public int getGraspMax() {
+<span class="fc" id="L29">        return this.graspMax;</span>
+    }
+    public Grafo getBuiltGrafo() {
+<span class="fc" id="L32">        return this.builtGrafo;</span>
+    }
+    public double getAlfa() {
+<span class="fc" id="L35">        return this.alfa;</span>
+    }
+<span class="fc" id="L37">    public MetGrasp(Grafo g, int graspMax, double alfa) {</span>
+<span class="fc" id="L38">        this.graspMax = graspMax;</span>
+<span class="fc" id="L39">        this.builtGrafo = g;</span>
+<span class="fc" id="L40">        this.alfa = alfa;</span>
+<span class="fc" id="L41">    }</span>
+
+    /**
+     * Método principal que ejecuta el algoritmo GRASP.
+     * Realiza las iteraciones GRASP construyendo soluciones aleatorias y mejorándolas con VND.
+     */
+    public void run() {
+        // Inicializar las soluciones y las variables de tiempo
+<span class="fc" id="L49">        int[] solucao = new int[builtGrafo.getnVertices()];</span>
+        int[] solconstruida;
+        int[] solAux;
+        Instant start;
+        Instant finish;
+        long timeElapsed;
+
+        // Inicializar el mejor valor a infinito para minimizar el costo.
+<span class="fc" id="L57">        double bestVal = Double.MAX_VALUE;</span>
+
+        // Registrar el tiempo de inicio del algoritmo.
+<span class="fc" id="L60">        start = Instant.now();</span>
+        // Ejecutar el ciclo GRASP para el número máximo de iteraciones.
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        for (int i = 0; i &lt; graspMax; ++i) {</span>
+            // Construir una solución aleatoria y mejorarla con VND.
+<span class="fc" id="L64">            solconstruida = construirSolucaoAleatoria(1, alfa);</span>
+<span class="fc" id="L65">            solAux = new MetVND(builtGrafo, solconstruida).run();</span>
+
+            // Imprimir el valor de la solución construida.
+<span class="fc" id="L68">            String solucion = &quot;Valor da solucao construtiva=&gt; &quot; + valorSolucao(solconstruida);</span>
+<span class="fc" id="L69">            logger.info(solucion);</span>
+
+            // Si la solución es mejor que la mejor actual, actualizar la mejor solución.
+<span class="fc bfc" id="L72" title="All 2 branches covered.">            if (valorSolucao(solAux) &lt; bestVal) {</span>
+<span class="fc" id="L73">                bestVal = valorSolucao(solAux);</span>
+<span class="fc" id="L74">                solucao = solAux;</span>
+            }
+        }
+        // Registrar el tiempo de finalización y calcular la duración.
+<span class="fc" id="L78">        finish = Instant.now();</span>
+<span class="fc" id="L79">        timeElapsed = Duration.between(start, finish).toMillis();</span>
+
+        // Imprimir el tiempo de ejecución y el valor de la mejor solución encontrada.
+<span class="fc" id="L82">        String exeTempo = &quot; Tempo da solucao meta heuristica=&gt; &quot; + timeElapsed;</span>
+<span class="fc" id="L83">        logger.info(exeTempo);</span>
+
+<span class="fc" id="L85">        escreverArray(solucao);</span>
+
+<span class="fc" id="L87">        String valorSolucao = &quot; Valor da solucao =&gt; &quot; + valorSolucao(solucao);</span>
+<span class="fc" id="L88">        logger.info(valorSolucao);</span>
+<span class="fc" id="L89">    }</span>
+
+    /**
+     * Construye una solución aleatoria para el grafo.
+     *
+     * @param id    El vértice de inicio para la construcción de la solución.
+     * @param alfa  Parámetro alfa para controlar la aleatoriedad en la construcción de la solución.
+     * @return      Un array que representa la solución construida.
+     */
+    public int[] construirSolucaoAleatoria(int id, double alfa) {
+<span class="fc" id="L99">        int count = 0;</span>
+<span class="fc" id="L100">        Instant start = Instant.now();</span>
+<span class="fc" id="L101">        int[] solucao = new int[builtGrafo.getnVertices()];</span>
+        List&lt;double[]&gt; valSolucoespossiveis;
+
+        // Inicializar los candidatos para el punto de partida.
+<span class="fc" id="L105">        valSolucoespossiveis = inicializarCandidatos(id);</span>
+
+        try {
+            // Mientras haya candidatos disponibles, seleccionar uno y construir la solución.
+<span class="fc bfc" id="L109" title="All 2 branches covered.">            while (!valSolucoespossiveis.isEmpty()) {</span>
+<span class="fc" id="L110">                int sig = valSolucoespossiveis.size() * (int) alfa + 1;</span>
+<span class="fc" id="L111">                int rand = this.random.nextInt(sig);</span>
+<span class="fc" id="L112">                double[] aux = valSolucoespossiveis.get(rand);</span>
+<span class="fc" id="L113">                solucao[count] = (int) aux[1];</span>
+<span class="fc" id="L114">                valSolucoespossiveis.remove(aux);</span>
+<span class="fc" id="L115">                ++count;</span>
+<span class="fc" id="L116">            }</span>
+<span class="nc" id="L117">        } catch (IndexOutOfBoundsException e) {</span>
+            // Si no hay más candidatos disponibles, seleccionar el último.
+<span class="nc" id="L119">            double[] aux = valSolucoespossiveis.get(0);</span>
+<span class="nc" id="L120">            solucao[count] = (int) aux[1];</span>
+<span class="nc" id="L121">            valSolucoespossiveis.remove(aux);</span>
+<span class="nc" id="L122">            ++count;</span>
+<span class="fc" id="L123">        }</span>
+<span class="fc" id="L124">        Instant finish = Instant.now();</span>
+<span class="fc" id="L125">        long timeElapsed = Duration.between(start, finish).toNanos();</span>
+
+        // Imprimir el tiempo que tomó construir la solución aleatoria.
+<span class="fc" id="L128">        String tiempo = String.valueOf(timeElapsed);</span>
+<span class="fc" id="L129">        String tempoSolucao = &quot; Tempo da solucao construtiva (nanos)=&gt; &quot; + tiempo;</span>
+<span class="fc" id="L130">        logger.info(tempoSolucao);</span>
+<span class="fc" id="L131">        return solucao;</span>
+    }
+
+    /**
+     * Inicializa los candidatos con sus costos desde un vértice de inicio.
+     *
+     * @param id    Identificador del vértice de inicio.
+     * @return      Lista de arrays con los costos y los identificadores de cada vértice candidato.
+     */
+    private List&lt;double[]&gt; inicializarCandidatos(int id) {
+<span class="fc" id="L141">        List&lt;double[]&gt; custosCandidatos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L142">        double[][] aux = new double[builtGrafo.getnVertices()][2];</span>
+<span class="fc" id="L143">        int count = 0;</span>
+
+        // Llenar la lista auxiliar con los pesos y los identificadores de los vértices.
+<span class="fc bfc" id="L146" title="All 2 branches covered.">        for (Vertice v : builtGrafo.getVertices()) {</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">            if (id == v.getId()) {</span>
+<span class="fc" id="L148">                aux[count][0] = 0;</span>
+<span class="fc" id="L149">                aux[count][1] = v.getId();</span>
+<span class="fc" id="L150">                ++count;</span>
+            } else {
+<span class="fc" id="L152">                aux[count][0] = builtGrafo.getAresta(id, v.getId()).getPeso();</span>
+<span class="fc" id="L153">                aux[count][1] = v.getId();</span>
+<span class="fc" id="L154">                ++count;</span>
+            }
+<span class="fc" id="L156">        }</span>
+
+        // Ordenar los candidatos por su costo utilizando una expresión lambda.
+<span class="fc" id="L159">        java.util.Arrays.sort(aux, new java.util.Comparator&lt;double[]&gt;() {</span>
+            public int compare(double[] a, double[] b) {
+<span class="fc" id="L161">                return Double.compare(a[0], b[0]);</span>
+            }
+        });
+
+<span class="fc bfc" id="L165" title="All 2 branches covered.">        for (double[] d: aux){</span>
+<span class="fc" id="L166">            Collections.addAll(custosCandidatos, d);</span>
+        }
+
+<span class="fc" id="L169">        return custosCandidatos;</span>
+    }
+
+    /**
+     * Calcula el valor de una solución dada, sumando los pesos de las aristas que conectan los vértices.
+     *
+     * @param s La solución a evaluar.
+     * @return  El costo total de la solución.
+     */
+    private double valorSolucao(int[] s) {
+<span class="fc" id="L179">        double solucao = 0;</span>
+
+        // Sumar los pesos de las aristas entre vértices consecutivos en la solución.
+<span class="fc bfc" id="L182" title="All 2 branches covered.">        for (int c = 1; c &lt; s.length; ++c) {</span>
+<span class="fc" id="L183">            solucao += builtGrafo.getAresta(s[c - 1], s[c]).getPeso();</span>
+        }
+        // Añadir el peso de la arista que cierra el ciclo, conectando el último y el primer vértice.
+<span class="fc" id="L186">        solucao += builtGrafo.getAresta(s[s.length - 1], s[0]).getPeso();</span>
+
+<span class="fc" id="L188">        return solucao;</span>
+    }
+
+    /**
+     * Imprime una representación en consola de una solución (arreglo de enteros).
+     *
+     * @param a La solución a imprimir.
+     */
+    private void escreverArray(int[] a) {
+<span class="fc" id="L197">        StringBuilder builder = new StringBuilder();</span>
+<span class="fc bfc" id="L198" title="All 2 branches covered.">        for (int i = 0; i &lt; a.length; i++) {</span>
+<span class="fc" id="L199">            builder.append(a[i]).append(&quot; &quot;);</span>
+        }
+<span class="fc" id="L201">        String sol = builder.toString();</span>
+<span class="fc" id="L202">        String message = &quot;Rota encontrada =&gt; &quot; + sol;</span>
+<span class="fc" id="L203">        logger.info(message);</span>
+<span class="fc" id="L204">        logger.log(Level.FINE, &quot;\n&quot;); // Añadir un salto de línea al final para separar la salida de otras impresiones.</span>
+<span class="fc" id="L205">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

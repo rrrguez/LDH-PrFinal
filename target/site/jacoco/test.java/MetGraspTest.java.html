@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MetGraspTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">LDH-FINAL</a> &gt; <a href="index.source.html" class="el_package">test.java</a> &gt; <span class="el_source">MetGraspTest.java</span></div><h1>MetGraspTest.java</h1><pre class="source lang-java linenums">package test.java;
+
+import main.java.*;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="fc" id="L11">class MetGraspTest {</span>
+    @Test
+    void testMetGraspConstructor() {
+        // Crear un grafo de prueba con algunos vértices y aristas
+<span class="fc" id="L15">        List&lt;Vertice&gt; vertices = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L16">        List&lt;Aresta&gt; arestas = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L18">        Vertice v1 = new Vertice(1);</span>
+<span class="fc" id="L19">        Vertice v2 = new Vertice(2);</span>
+<span class="fc" id="L20">        Vertice v3 = new Vertice(3);</span>
+
+<span class="fc" id="L22">        Aresta a1 = new Aresta(v1, v2, 2.0F);</span>
+<span class="fc" id="L23">        Aresta a2 = new Aresta(v2, v3, 3.0F);</span>
+<span class="fc" id="L24">        Aresta a3 = new Aresta(v3, v1, 4.0F);</span>
+
+<span class="fc" id="L26">        vertices.add(v1);</span>
+<span class="fc" id="L27">        vertices.add(v2);</span>
+<span class="fc" id="L28">        vertices.add(v3);</span>
+
+<span class="fc" id="L30">        arestas.add(a1);</span>
+<span class="fc" id="L31">        arestas.add(a2);</span>
+<span class="fc" id="L32">        arestas.add(a3);</span>
+
+<span class="fc" id="L34">        Grafo grafo = new Grafo(3, vertices, arestas);</span>
+
+<span class="fc" id="L36">        int graspMax = 5;</span>
+<span class="fc" id="L37">        double alfa = 0.75;</span>
+
+        // Act
+<span class="fc" id="L40">        MetGrasp metGrasp = new MetGrasp(grafo, graspMax, alfa);</span>
+
+        // Assert
+<span class="fc" id="L43">        assertEquals(graspMax, metGrasp.getGraspMax());</span>
+<span class="fc" id="L44">        assertEquals(grafo, metGrasp.getBuiltGrafo());</span>
+<span class="fc" id="L45">        assertEquals(alfa, metGrasp.getAlfa());</span>
+<span class="fc" id="L46">    }</span>
+    @Test
+    void testRun() {
+        // Crear un grafo de prueba con algunos vértices y aristas
+<span class="fc" id="L50">        List&lt;Vertice&gt; vertices = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L51">        List&lt;Aresta&gt; arestas = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L53">        Vertice v1 = new Vertice(1);</span>
+<span class="fc" id="L54">        Vertice v2 = new Vertice(2);</span>
+<span class="fc" id="L55">        Vertice v3 = new Vertice(3);</span>
+
+<span class="fc" id="L57">        Aresta a1 = new Aresta(v1, v2, 2.0F);</span>
+<span class="fc" id="L58">        Aresta a2 = new Aresta(v2, v3, 3.0F);</span>
+<span class="fc" id="L59">        Aresta a3 = new Aresta(v3, v1, 4.0F);</span>
+
+<span class="fc" id="L61">        vertices.add(v1);</span>
+<span class="fc" id="L62">        vertices.add(v2);</span>
+<span class="fc" id="L63">        vertices.add(v3);</span>
+
+<span class="fc" id="L65">        arestas.add(a1);</span>
+<span class="fc" id="L66">        arestas.add(a2);</span>
+<span class="fc" id="L67">        arestas.add(a3);</span>
+
+<span class="fc" id="L69">        Grafo grafo = new Grafo(3, vertices, arestas);</span>
+
+        // Crear una instancia de MetGrasp con el grafo de prueba
+<span class="fc" id="L72">        MetGrasp metGrasp = new MetGrasp(grafo, 10, 0.5);</span>
+
+        // Ejecutar el método run
+<span class="fc" id="L75">        metGrasp.run();</span>
+<span class="fc" id="L76">        assertEquals(10, metGrasp.getGraspMax(), &quot;El valor de graspMax debería ser 10 después de ejecutar run()&quot;);</span>
+<span class="fc" id="L77">        assertNotNull(metGrasp.getBuiltGrafo(), &quot;El grafo construido no debería ser nulo después de ejecutar run()&quot;);</span>
+<span class="fc" id="L78">        assertEquals(0.5, metGrasp.getAlfa(), 0.01, &quot;El valor de alfa debería ser 0.5 después de ejecutar run()&quot;);</span>
+<span class="fc" id="L79">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

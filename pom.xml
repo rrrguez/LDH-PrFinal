@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>APAtrabalhofinal--master</artifactId>
+    <artifactId>LDH-FINAL</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -78,7 +78,7 @@
     </reporting>
 
     <build>
-        <sourceDirectory>src/main</sourceDirectory>
+        <sourceDirectory>src</sourceDirectory>
 
         <plugins>
             <plugin>

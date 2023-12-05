@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">LDH-FINAL</a> &gt; <a href="index.source.html" class="el_package">main.java</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package main.java;
+
+import java.util.Scanner;
+import java.util.logging.Logger;
+
+<span class="nc" id="L6">public class Main {</span>
+<span class="fc" id="L7">    private static final Logger logger = Logger.getLogger(&quot;Logs&quot;);</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L10">        String filename = obtainFileName(args);</span>
+<span class="nc" id="L11">        Reader leitor = new Reader(filename);</span>
+<span class="nc" id="L12">        Grafo builtSolution = createGrafoFromReader(leitor);</span>
+<span class="nc" id="L13">        MetGrasp grasp = initializeGrasp(builtSolution);</span>
+<span class="nc" id="L14">        executeGrasp(grasp);</span>
+<span class="nc" id="L15">    }</span>
+
+    public static String obtainFileName(String[] args) {
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">        if (args.length &gt; 0) {</span>
+<span class="fc" id="L19">            return args[0];</span>
+        } else {
+<span class="nc" id="L21">            logger.info(&quot;Ingrese el nombre del archivinho (Ramiro no se toca): &quot;);</span>
+<span class="nc" id="L22">            Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L23">            String filename = scanner.nextLine();</span>
+<span class="nc" id="L24">            scanner.close();</span>
+<span class="nc" id="L25">            return filename;</span>
+        }
+    }
+
+    public static Grafo createGrafoFromReader(Reader leitor) {
+<span class="fc" id="L30">        return new Grafo(leitor.getnVertices(), leitor.getVertices(), leitor.getArestas());</span>
+    }
+
+    public static MetGrasp initializeGrasp(Grafo builtSolution) {
+<span class="fc" id="L34">        int iteracoesGrasp = 2;</span>
+<span class="fc" id="L35">        double alfa = 0.1;</span>
+<span class="fc" id="L36">        return new MetGrasp(builtSolution, iteracoesGrasp, alfa);</span>
+    }
+
+    public static void executeGrasp(MetGrasp grasp) {
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        for (int i = 0; i &lt; 10; ++i) {</span>
+<span class="fc" id="L41">            grasp.run();</span>
+        }
+<span class="fc" id="L43">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

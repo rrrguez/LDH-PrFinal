@@ -27,7 +27,7 @@ public class MainTest {
         System.setIn(test);
 
         // Captura la salida esperada del método obtainFileName
-        String expectedOutput = "Ingrese el nombre del archivo: ";
+        String expectedOutput = "bayg29.txt";
 
         // Captura la salida del método obtainFileName
         String actualOutput;

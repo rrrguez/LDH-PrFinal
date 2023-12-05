@@ -107,6 +107,19 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version> <!-- Usa la última versión disponible -->
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>main.java.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

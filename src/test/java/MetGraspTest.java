@@ -73,5 +73,8 @@ class MetGraspTest {
 
         // Ejecutar el método run
         metGrasp.run();
+        assertEquals(10, metGrasp.getGraspMax(), "El valor de graspMax debería ser 10 después de ejecutar run()");
+        assertNotNull(metGrasp.getBuiltGrafo(), "El grafo construido no debería ser nulo después de ejecutar run()");
+        assertEquals(0.5, metGrasp.getAlfa(), 0.01, "El valor de alfa debería ser 0.5 después de ejecutar run()");
     }
 }

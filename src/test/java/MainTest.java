@@ -14,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class MainTest {
     @Test
     public void testObtainFileName() {
-        String[] args = new String[]{"file.txt"};
-        String expected = "file.txt";
+        String[] args = new String[]{"bayg29.txt"};
+        String expected = "bayg29.txt";
         assertEquals(expected, Main.obtainFileName(args));
     }
 

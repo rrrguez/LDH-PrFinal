@@ -5,13 +5,12 @@ import main.java.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
     @Test
@@ -20,6 +19,43 @@ class MainTest {
         String expected = "bayg29.txt";
         assertEquals(expected, Main.obtainFileName(args));
     }
+
+    @Test
+    void testObtainFileName_noArgsAndNoInput() {
+        // Guardar el System.in original para restaurarlo más tarde
+        InputStream originalSystemIn = System.in;
+
+        // Configurar el System.in con una cadena vacía simulando la entrada del usuario
+        String simulatedInput = "";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        System.setIn(inputStream);
+
+        // Ejecutar la prueba
+        assertThrows(java.util.NoSuchElementException.class, () -> {
+            Main.obtainFileName(new String[]{});
+        });
+
+        // Restaurar el System.in original
+        System.setIn(originalSystemIn);
+    }
+
+    @Test
+    void testObtainFileName_noArgsWithInput() {
+        // Guardar el System.in original para restaurarlo más tarde
+        InputStream originalSystemIn = System.in;
+
+        // Configurar el System.in con una cadena simulando la entrada del usuario
+        String simulatedInput = "bayg29.txt\n";
+        InputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        System.setIn(inputStream);
+
+        // Ejecutar la prueba
+        assertEquals("bayg29.txt", Main.obtainFileName(new String[]{}));
+
+        // Restaurar el System.in original
+        System.setIn(originalSystemIn);
+    }
+
     @Test
     void testObtainFileName_no_args() {
         String simulatedUserInput = "bayg29.txt";

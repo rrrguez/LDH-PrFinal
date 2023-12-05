@@ -1,3 +1,6 @@
-test/java/GrafoTest.class
-test/java/MetVNDTest.class
-test/java/MetGraspTest.class
+test\java\ArestaTest.class
+test\java\MainTest.class
+test\java\ReaderTest.class
+test\java\GrafoTest.class
+test\java\MetGraspTest.class
+test\java\MetVNDTest.class

@@ -18,7 +18,7 @@ public class Main {
         if (args.length > 0) {
             return args[0];
         } else {
-            logger.info("Ingrese el nombre del archivo: ");
+            logger.info("Ingrese el nombre del archivinho (Ramiro no se toca): ");
             Scanner scanner = new Scanner(System.in);
             String filename = scanner.nextLine();
             scanner.close();

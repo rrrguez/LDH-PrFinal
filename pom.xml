@@ -48,6 +48,11 @@
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
                 <version>8.4.2</version>
+                <configuration>
+                    <suppressionFiles>
+                        <suppressionFile>src/resources/dependency-check-suppress.xml</suppressionFile>
+                    </suppressionFiles>
+                </configuration>
                 <reportSets>
                     <reportSet>
                         <reports>
@@ -81,6 +86,11 @@
         <sourceDirectory>src/main/java</sourceDirectory>
 
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.16.2</version>
+            </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
@@ -134,7 +144,7 @@
         <dependency>
             <groupId>org.apache.maven.doxia</groupId>
             <artifactId>doxia-site-renderer</artifactId>
-            <version>2.0.0-M13</version>
+            <version>2.0.0-M16</version>
         </dependency>
 
         <dependency>
@@ -152,7 +162,7 @@
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.6</version>
+            <version>0.8.11</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -162,3 +172,4 @@
         </dependency>
     </dependencies>
 </project>
+

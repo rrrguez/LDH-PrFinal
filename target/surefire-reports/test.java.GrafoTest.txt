@@ -1,4 +1,48 @@
 -------------------------------------------------------------------------------
 Test set: test.java.GrafoTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in test.java.GrafoTest
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in test.java.GrafoTest
+testGetVertice  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.VerifyError: 
+Expecting a stackmap frame at branch target 132
+Exception Details:
+  Location:
+    main/java/Grafo.getVertice(I)Lmain/java/Vertice; @41: ifeq
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0000000: 126d c000 6f4d b800 1712 19b6 001d 1100
+    0000010: 4cb6 0023 2ab4 002a b900 3d01 004e 2c10
+    0000020: 0804 542d b900 4301 0099 005b 2db9 0047
+    0000030: 0100 c000 493a 042c 1009 0454 b800 1712
+    0000040: 19b6 001d 1100 4db6 0023 1904 b600 4c1b
+    0000050: a000 1e2c 100a 0454 b800 1712 19b6 001d
+    0000060: 1100 4eb6 0023 1904 2c10 0b04 54b0 b800
+    0000070: 1712 19b6 001d 1100 50b6 0023 2c10 0c04
+    0000080: 54a7 ffa2 b800 1712 19b6 001d 1100 51b6
+    0000090: 0023 012c 100d 0454 b0                 
+
+	at test.java.GrafoTest.testGetVertice(GrafoTest.java:21)
+
+testGetAresta  Time elapsed: 0 s  <<< ERROR!
+java.lang.VerifyError: 
+Expecting a stackmap frame at branch target 132
+Exception Details:
+  Location:
+    main/java/Grafo.getVertice(I)Lmain/java/Vertice; @41: ifeq
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0000000: 126d c000 6f4d b800 1712 19b6 001d 1100
+    0000010: 4cb6 0023 2ab4 002a b900 3d01 004e 2c10
+    0000020: 0804 542d b900 4301 0099 005b 2db9 0047
+    0000030: 0100 c000 493a 042c 1009 0454 b800 1712
+    0000040: 19b6 001d 1100 4db6 0023 1904 b600 4c1b
+    0000050: a000 1e2c 100a 0454 b800 1712 19b6 001d
+    0000060: 1100 4eb6 0023 1904 2c10 0b04 54b0 b800
+    0000070: 1712 19b6 001d 1100 50b6 0023 2c10 0c04
+    0000080: 54a7 ffa2 b800 1712 19b6 001d 1100 51b6
+    0000090: 0023 012c 100d 0454 b0                 
+
+	at test.java.GrafoTest.testGetAresta(GrafoTest.java:42)
+

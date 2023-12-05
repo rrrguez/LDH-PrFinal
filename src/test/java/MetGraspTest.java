@@ -1,6 +1,10 @@
 package test.java;
 
-import main.java.*;
+import main.java.Grafo;
+import main.java.Aresta;
+import main.java.Vertice;
+import main.java.MetGrasp;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

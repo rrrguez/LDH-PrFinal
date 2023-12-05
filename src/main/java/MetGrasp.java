@@ -25,6 +25,15 @@ public class MetGrasp {
      * @param graspMax  Número máximo de iteraciones para GRASP.
      * @param alfa      Parámetro alfa para la construcción de soluciones aleatorias.
      */
+    public int getGraspMax() {
+        return this.graspMax;
+    }
+    public Grafo getBuiltGrafo() {
+        return this.builtGrafo;
+    }
+    public double getAlfa() {
+        return this.alfa;
+    }
     public MetGrasp(Grafo g, int graspMax, double alfa) {
         this.graspMax = graspMax;
         this.builtGrafo = g;

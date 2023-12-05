@@ -26,17 +26,17 @@ public class Main {
         }
     }
 
-    static Grafo createGrafoFromReader(Reader leitor) {
+    public static Grafo createGrafoFromReader(Reader leitor) {
         return new Grafo(leitor.getnVertices(), leitor.getVertices(), leitor.getArestas());
     }
 
-    static MetGrasp initializeGrasp(Grafo builtSolution) {
+    public static MetGrasp initializeGrasp(Grafo builtSolution) {
         int iteracoesGrasp = 2;
         double alfa = 0.1;
         return new MetGrasp(builtSolution, iteracoesGrasp, alfa);
     }
 
-    static void executeGrasp(MetGrasp grasp) {
+    public static void executeGrasp(MetGrasp grasp) {
         for (int i = 0; i < 10; ++i) {
             grasp.run();
         }

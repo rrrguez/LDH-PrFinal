@@ -1,10 +1,9 @@
 package test.java;
 
+import main.java.*;
+
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-import main.java.Grafo;
-import main.java.Vertice;
-import main.java.Aresta;
 
 import java.util.ArrayList;
 import java.util.List;

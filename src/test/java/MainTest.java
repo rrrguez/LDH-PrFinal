@@ -3,46 +3,28 @@ package test.java;
 import main.java.*;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.Scanner;
-
 public class MainTest {
-
-    private InputStream standardInputStream;
-    private ByteArrayInputStream mockInputStream;
-
-    @BeforeEach
-    public void setUp() {
-        standardInputStream = System.in;
-    }
-
-    @AfterEach
-    public void tearDown() {
-        System.setIn(standardInputStream);
-    }
-
     @Test
-    public void testObtainFileName_WithArgs() {
-        String[] args = new String[]{"file.txt"};
-        assertEquals("file.txt", Main.obtainFileName(args));
+    public void testObtainFileName_args() {
+        String[] args = new String[]{"bayg29.txt"};
+        String expected = "bayg29.txt";
+        assertEquals(expected, Main.obtainFileName(args));
     }
-
     @Test
-    public void testObtainFileName_WithoutArgs() {
-        String simulatedUserInput = "input.txt";
-        mockInputStream = new ByteArrayInputStream(simulatedUserInput.getBytes());
-        System.setIn(mockInputStream);
+    public void testObtainFileName_no_args() {
+        String simulatedUserInput = "bayg29.txt";
+        ByteArrayInputStream test = new ByteArrayInputStream(simulatedUserInput.getBytes());
+        System.setIn(test);
 
         // Captura la salida esperada del método obtainFileName
         String expectedOutput = "Ingrese el nombre del archivo: ";
@@ -56,15 +38,6 @@ public class MainTest {
         // Verifica que el nombre del archivo ingresado coincida con la entrada simulada
         assertEquals(expectedOutput, actualOutput);
     }
-}
-
-    @Test
-    public void testObtainFileName() {
-        String[] args = new String[]{"bayg29.txt"};
-        String expected = "bayg29.txt";
-        assertEquals(expected, Main.obtainFileName(args));
-    }
-
     @Test
     public void testCreateGrafoFromReader() {
         Reader reader = new Reader("bayg29.txt");

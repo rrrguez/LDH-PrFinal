@@ -1,10 +1,9 @@
 name: Check Jenkins Build Result
 
 on:
-  workflow_run:
-    workflows: ["LDH-PrFinal"]
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
   check-jenkins-result:
@@ -16,13 +15,8 @@ jobs:
 
       - name: Check Jenkins Result
         run: |
-          # Hacer una solicitud HTTP a Jenkins para obtener el resultado
-          JENKINS_RESULT=$(curl -s http://jenkins-url/lastBuild/api/json | jq -r '.result')
-
-          # Imprimir el resultado en la consola
+          JENKINS_RESULT=$(curl -s http://localhost:8080/job/LDH-PrFinal/lastBuild/api/json | jq -r '.result')
           echo "Resultado de Jenkins: $JENKINS_RESULT"
-
-          # Aquí puedes agregar lógica adicional según el resultado
           if [ "$JENKINS_RESULT" = "SUCCESS" ]; then
             echo "La construcción fue exitosa."
           else

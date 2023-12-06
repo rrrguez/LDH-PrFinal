@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: test.java.MainTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 1, Errors: 5, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in test.java.MainTest
-testCreateGrafoFromReader  Time elapsed: 0.001 s  <<< ERROR!
+Tests run: 7, Failures: 1, Errors: 5, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in test.java.MainTest
+testCreateGrafoFromReader  Time elapsed: 0 s  <<< ERROR!
 java.lang.VerifyError: 
 Expecting a stackmap frame at branch target 129
 Exception Details:
@@ -79,7 +79,7 @@ Exception Details:
 
 	at test.java.MainTest.testCreateGrafoFromReader(MainTest.java:79)
 
-testInitializeGrasp  Time elapsed: 0 s  <<< ERROR!
+testInitializeGrasp  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.VerifyError: 
 Expecting a stackmap frame at branch target 230
 Exception Details:
@@ -112,7 +112,7 @@ Exception Details:
 
 	at test.java.MainTest.testInitializeGrasp(MainTest.java:94)
 
-testExecuteGrasp  Time elapsed: 0.001 s  <<< ERROR!
+testExecuteGrasp  Time elapsed: 0 s  <<< ERROR!
 java.lang.VerifyError: 
 Expecting a stackmap frame at branch target 230
 Exception Details:
@@ -169,7 +169,7 @@ Exception Details:
 
 	at test.java.MainTest.testObtainFileName_noArgsWithInput(MainTest.java:53)
 
-testObtainFileName_noArgsAndNoInput  Time elapsed: 0.006 s  <<< FAILURE!
+testObtainFileName_noArgsAndNoInput  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.util.NoSuchElementException> but was: <java.lang.VerifyError>
 	at test.java.MainTest.testObtainFileName_noArgsAndNoInput(MainTest.java:34)
 Caused by: java.lang.VerifyError: 

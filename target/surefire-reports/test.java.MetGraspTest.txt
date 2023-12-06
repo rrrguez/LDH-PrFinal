@@ -2,7 +2,7 @@
 Test set: test.java.MetGraspTest
 -------------------------------------------------------------------------------
 Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in test.java.MetGraspTest
-testRun  Time elapsed: 0 s  <<< ERROR!
+testRun  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.VerifyError: 
 Expecting a stackmap frame at branch target 230
 Exception Details:
@@ -35,7 +35,7 @@ Exception Details:
 
 	at test.java.MetGraspTest.testRun(MetGraspTest.java:69)
 
-testMetGraspConstructor  Time elapsed: 0.001 s  <<< ERROR!
+testMetGraspConstructor  Time elapsed: 0 s  <<< ERROR!
 java.lang.VerifyError: 
 Expecting a stackmap frame at branch target 230
 Exception Details:

@@ -35,7 +35,7 @@ Exception Details:
 
 	at test.java.GrafoTest.testGetVertice(GrafoTest.java:21)
 
-testGetAresta  Time elapsed: 0.001 s  <<< ERROR!
+testGetAresta  Time elapsed: 0 s  <<< ERROR!
 java.lang.VerifyError: 
 Expecting a stackmap frame at branch target 230
 Exception Details:

@@ -9,5 +9,4 @@ Team members:
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=coverage)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal) 
 
-[[![Build Status](http://localhost:8080/job/LDH-PrFinal/badge/icon)](http://localhost:8080/job/LDH-PrFinal)
-](http://localhost:8080/job/LDH-PrFinal/badge/icon)http://localhost:8080/job/LDH-PrFinal/badge/icon
+[<img src="http://localhost:8080/job/LDH-PrFinal/badge/icon">]

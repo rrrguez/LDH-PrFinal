@@ -7,4 +7,6 @@ Team members:
 - [Rebeca Rotriguez Rodriguez](https://github.com/rrrguez) [<img src="https://static.vecteezy.com/system/resources/previews/015/117/357/non_2x/envelope-icon-in-white-colors-mail-signs-illustration-png.png" width="20" height="12">](mailto:alu0101394763@ull.edu.es)
 - [Sergio Mora González](https://github.com/alu0100918205) [<img src="https://static.vecteezy.com/system/resources/previews/015/117/357/non_2x/envelope-icon-in-white-colors-mail-signs-illustration-png.png" width="20" height="12">](mailto:alu0100918205@ull.edu.es)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=coverage)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal) [![Build Status](http://localhost:8080/buildStatus/icon?job=LDH-PrFinal)](http://localhost:8080/job/LDH-PrFinal/)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=rrrguez_LDH-PrFinal&metric=coverage)](https://sonarcloud.io/summary/new_code?id=rrrguez_LDH-PrFinal) 
+
+[![Build Status](http://localhost:8080/job/LDH-PrFinal/badge/icon)](http://localhost:8080/job/LDH-PrFinal/)

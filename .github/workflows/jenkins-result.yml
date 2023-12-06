@@ -1,4 +1,4 @@
-name: Check Jenkins Build Result
+name: Jenkins
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Check Jenkins Result
+      - name: Build Result
         run: |
           JENKINS_RESULT=$(curl -s http://localhost:8080/job/LDH-PrFinal/lastBuild/api/json | jq -r '.result')
           echo "Resultado de Jenkins: $JENKINS_RESULT"

@@ -1,0 +1,33 @@
+name: Check Jenkins Build Result
+
+on:
+  workflow_run:
+    workflows: ["LDH-PrFinal"]
+    types:
+      - completed
+
+jobs:
+  check-jenkins-result:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Check Jenkins Result
+        run: |
+          # Hacer una solicitud HTTP a Jenkins para obtener el resultado
+          JENKINS_RESULT=$(curl -s http://jenkins-url/lastBuild/api/json | jq -r '.result')
+
+          # Imprimir el resultado en la consola
+          echo "Resultado de Jenkins: $JENKINS_RESULT"
+
+          # Aquí puedes agregar lógica adicional según el resultado
+          if [ "$JENKINS_RESULT" = "SUCCESS" ]; then
+            echo "La construcción fue exitosa."
+          else
+            echo "La construcción falló."
+          fi
+        env:
+          JENKINS_URL: http://localhost:8080/job/LDH-PrFinal/
+          JENKINS_TOKEN: ${{ secrets.JENKINS_TOKEN }}

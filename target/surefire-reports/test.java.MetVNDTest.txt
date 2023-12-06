@@ -1,4 +1,37 @@
 -------------------------------------------------------------------------------
 Test set: test.java.MetVNDTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in test.java.MetVNDTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in test.java.MetVNDTest
+testRun  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.VerifyError: 
+Expecting a stackmap frame at branch target 230
+Exception Details:
+  Location:
+    main/java/Grafo.getAresta(II)Lmain/java/Aresta; @43: ifeq
+  Reason:
+    Expected stackmap frame at this location.
+  Bytecode:
+    0000000: 126d c000 6f4e b800 1712 19b6 001d 1100
+    0000010: 5db6 0023 2ab4 002c b900 3d01 003a 042d
+    0000020: 100e 0454 1904 b900 4301 0099 00bb 1904
+    0000030: b900 4701 00c0 0053 3a05 2d10 0f04 54b8
+    0000040: 0017 1219 b600 1d11 005e b600 2319 05b6
+    0000050: 0057 b600 4c1b 9f00 0b2d 1010 0454 a700
+    0000060: 1c19 05b6 005a b600 4c1c a000 0b2d 1011
+    0000070: 0454 a700 482d 1012 0454 1905 2d10 1304
+    0000080: 54b8 0017 1219 b600 1d11 005f b600 23b6
+    0000090: 005a b600 4c1b 9f00 0b2d 1014 0454 a700
+    00000a0: 3219 05b6 0057 b600 4c1c 9f00 0b2d 1015
+    00000b0: 0454 a700 1e2d 1016 0454 b800 1712 19b6
+    00000c0: 001d 1100 60b6 0023 1905 2d10 1704 54b0
+    00000d0: b800 1712 19b6 001d 1100 62b6 0023 2d10
+    00000e0: 1804 54a7 ff41 b800 1712 19b6 001d 1100
+    00000f0: 63b6 0023 012d 1019 0454 b0            
+  Stackmap Table:
+    append_frame(@97,Object[#111],Object[#63],Object[#83])
+    same_frame(@117)
+    same_frame(@161)
+    same_frame(@181)
+
+	at test.java.MetVNDTest.testRun(MetVNDTest.java:35)
+
